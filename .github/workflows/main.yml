@@ -30,10 +30,12 @@ jobs:
           - os: 'windows-2019'
             triplet: 'x64-windows'
             mono: ''
+            bootstrap: 'bootstrap-vcpkg.bat'
           - os: 'ubuntu-20.04'
             triplet: 'x64-linux'
             # To run `nuget.exe` on non-Windows platforms, we must use `mono`.
             mono: 'mono'
+            bootstrap: 'bootstrap-vcpkg.sh'
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -48,8 +50,8 @@ jobs:
       - name: 'Setup NuGet Credentials'
         shell: 'bash'
         # Replace <OWNER> with your organization name
-        run: >
-          ./vcpkg/bootstrap-vcpkg
+        run: |
+          ./vcpkg/${{ matrix.bootstrap }}
           ${{ matrix.mono }} `./vcpkg/vcpkg fetch nuget | tail -n 1`
           sources add
           -source "https://nuget.pkg.github.com/tartanllama/index.json"
