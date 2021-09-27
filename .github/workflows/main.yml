@@ -17,12 +17,9 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-          
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
-
+    runs-on: ${{ matrix.config.os }}
     strategy:
       matrix:
         os: ['windows-2019', 'ubuntu-20.04']
