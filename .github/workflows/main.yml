@@ -43,7 +43,7 @@ jobs:
       
       - uses: actions/checkout@v2
         with:
-          repository: 'microsoft/vcpkg'
+          repository: 'tartanllama/vcpkg'
           path: 'vcpkg'
     
       # This step assumes `vcpkg` has been bootstrapped (run `./vcpkg/bootstrap-vcpkg`)
