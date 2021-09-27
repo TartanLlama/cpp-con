@@ -27,7 +27,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
       
       - name: 'Bootstrap vcpkg'
-        run: ./vcpkg/bootstrap_vcpkg.bat
+        run: ./vcpkg/bootstrap-vcpkg.bat
         
       - name: 'Setup NuGet Credentials'
         shell: 'bash'
