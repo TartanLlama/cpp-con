@@ -48,8 +48,8 @@ jobs:
       - name: 'Setup NuGet Credentials'
         shell: 'bash'
         # Replace <OWNER> with your organization name
-        run: |
-          ./vcpkg/${{ matrix.bootstrap }}
+        run: >
+          ./vcpkg/${{ matrix.bootstrap }} &&
           ${{ matrix.mono }} `./vcpkg/vcpkg fetch nuget | tail -n 1`
           sources add
           -source "https://nuget.pkg.github.com/tartanllama/index.json"
