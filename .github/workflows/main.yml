@@ -25,9 +25,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['windows-2019', 'ubuntu-20.04']
+        os: ['windows-2022', 'ubuntu-20.04']
         include:
-          - os: 'windows-2019'
+          - os: 'windows-2022'
             triplet: 'x64-windows'
             mono: ''
             bootstrap: 'bootstrap-vcpkg.bat'
