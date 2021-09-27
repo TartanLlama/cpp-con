@@ -30,12 +30,13 @@ jobs:
             triplet: 'x64-windows'
             mono: ''
             bootstrap: 'bootstrap-vcpkg.bat'
+            preset: 'windows-default'
           - os: 'ubuntu-20.04'
             triplet: 'x64-linux'
             # To run `nuget.exe` on non-Windows platforms, we must use `mono`.
             mono: 'mono'
             bootstrap: 'bootstrap-vcpkg.sh'
-
+            preset: 'linux-default'
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -62,7 +63,7 @@ jobs:
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
         # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} --preset=default-windows
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} --preset=${{matrix.preset}}
 
       - name: Build
         # Build your program with the given configuration
