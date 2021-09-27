@@ -48,7 +48,7 @@ jobs:
           path: 'vcpkg'
     
       - uses: seanmiddleditch/gha-setup-ninja@master
-      - uses: ilammy/msvc-dev-cmd@v1
+      - uses: egor-tensin/vs-shell@v2
         if: ${{matrix.os}} == 'windows-2022'
       - uses: egor-tensin/setup-gcc@v1
         if: ${{matrix.os}} == 'ubuntu-20.04'
