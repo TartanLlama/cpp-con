@@ -51,6 +51,8 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
         if: ${{matrix.os == 'windows-2022'}}
       - uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 11
         if: ${{matrix.os == 'ubuntu-20.04'}}
     
       # This step assumes `vcpkg` has been bootstrapped (run `./vcpkg/bootstrap-vcpkg`)
