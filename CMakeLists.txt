@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(cppcon)
+find_package(tl-generator CONFIG REQUIRED)
+add_executable(cppcon cpp-con/cpp-con.cpp)
+target_link_libraries(cppcon PRIVATE tl::generator)
+set_target_properties(cppcon PROPERTIES CXX_STANDARD 23)
